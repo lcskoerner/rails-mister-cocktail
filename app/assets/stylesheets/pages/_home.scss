@@ -1,1 +1,39 @@
 // Specific CSS for your home-page
+
+a{
+  color: #BD93F9;
+}
+
+a:hover {
+  color: #FF79C6;
+  text-decoration: none;
+}
+
+body {
+  background-color: #383B59;
+  color: #F2F2F2;
+}
+
+.btn-success:hover {
+  background-color: #1EDD88;
+}
+
+.list-group-item {
+  background-color: #282B36;
+}
+
+.table-dark {
+  background-color: #282B36;
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.table-sm th, .table-sm td {
+  padding: 0.5rem;
+}

@@ -1,13 +1,37 @@
-<%= @cocktail.name %>
- <% @cocktail.doses.each do |d| %>
-  <ul>
-    <li>
-      <%= d.description %> – <%= d.ingredient.name %>
-      <%= link_to "Destroy dose", dose_path(d), method: :delete,
-      data: { confirm: "Are you sure?"} %>
-    </li>
-  </ul>
-<% end %>
-<%= link_to "Destroy cocktail", cocktail_path(@cocktail), method: :delete,
-data: { confirm: "Are you sure?"} %>
-<%= link_to "Create a dose", new_cocktail_dose_path(@cocktail) %>
+<h1><%= @cocktail.name %></h1>
+
+<table class="table-sm table-dark table-borderless pt-3">
+  <thead>
+    <tr>
+      <th scope="col">Ingredient</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <th scope="col">Dose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cocktail.doses.each do |d| %>
+      <tr>
+        <td><%= d.ingredient.name %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= d.description %></td>
+        <td><%= link_to dose_path(d), method: :delete,
+        data: { confirm: "Are you sure?"} do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<ul class="list-group list-group-horizontal mt-4">
+  <li class="list-group-item"><%= link_to "Create a dose", new_cocktail_dose_path(@cocktail) %></li>
+  <li class="list-group-item"><%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete,
+  data: { confirm: "Are you sure?"} %></li>
+
+</ul>

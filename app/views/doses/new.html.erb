@@ -2,5 +2,5 @@
   <%= d.association :ingredient, collection: Ingredient.order(:name),
   prompt: "Pick an ingredient", include_blank: false %>
   <%= d.input :description %>
-  <%= d.button :submit, "Create dose", class: "btn btn-primary" %>
+  <%= d.button :submit, "Create dose", class: "btn btn-success" %>
 <% end %>
