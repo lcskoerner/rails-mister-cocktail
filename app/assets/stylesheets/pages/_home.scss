@@ -9,6 +9,10 @@ a:hover {
   text-decoration: none;
 }
 
+h1 {
+  color: white;
+}
+
 body {
   background-color: #383B59;
   color: #F2F2F2;
@@ -36,4 +40,8 @@ body {
 
 .table-sm th, .table-sm td {
   padding: 0.5rem;
+}
+
+.last-col {
+  width: 32px;
 }

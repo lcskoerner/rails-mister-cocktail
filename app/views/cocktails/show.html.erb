@@ -1,13 +1,13 @@
-<h1><%= @cocktail.name %></h1>
+<h1 class="mb-4"><%= @cocktail.name %></h1>
 
-<table class="table-sm table-dark table-borderless pt-3">
+<div class="d-flex">
+
+<img height="500" class="mr-4" src="https://i1.wp.com/www.crispyfoodidea.com/wp-content/uploads/2020/05/Virgin-Mojito.jpg?fit=1080%2C1080&ssl=1)"/>
+
+<table class="table-sm table-dark table-borderless pt-3 mt-3 flex-grow-1">
   <thead>
     <tr>
       <th scope="col">Ingredient</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
       <th scope="col">Dose</th>
     </tr>
   </thead>
@@ -15,12 +15,8 @@
     <% @cocktail.doses.each do |d| %>
       <tr>
         <td><%= d.ingredient.name %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td><%= d.description %></td>
-        <td><%= link_to dose_path(d), method: :delete,
+        <td class="last-col"><%= link_to dose_path(d), method: :delete,
         data: { confirm: "Are you sure?"} do %>
           <i class="far fa-trash-alt"></i>
         <% end %></td>
@@ -28,6 +24,9 @@
     <% end %>
   </tbody>
 </table>
+</div>
+
+<div class="d-flex">
 
 <ul class="list-group list-group-horizontal mt-4">
   <li class="list-group-item"><%= link_to "Create a dose", new_cocktail_dose_path(@cocktail) %></li>
@@ -35,3 +34,4 @@
   data: { confirm: "Are you sure?"} %></li>
 
 </ul>
+</div>
