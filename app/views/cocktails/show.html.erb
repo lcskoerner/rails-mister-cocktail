@@ -38,9 +38,9 @@
 
 <div class="d-flex">
 
-<ul class="list-group list-group-horizontal mt-4">
-  <li class="list-group-item"><%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete,
-  data: { confirm: "Are you sure you want to delete #{@cocktail.name}?"} %></li>
-
-</ul>
+  <ul class="list-group list-group-horizontal mt-4">
+    <button class="btn btn-danger rounded" id="sweet-alert-demo">Delete cocktail</button>
+  </ul>
 </div>
+
+<%= link_to "", cocktail_path(@cocktail), method: :delete, id: "delete-cocktail", class: "hidden" %>
