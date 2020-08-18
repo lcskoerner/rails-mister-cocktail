@@ -28,10 +28,11 @@
 
     <%= simple_form_for [@cocktail, @dose] do |d| %>
       <%= d.association :ingredient, collection: Ingredient.order(:name),
-      prompt: "Pick an ingredient", include_blank: false %>
+      prompt: "Pick an ingredient", include_blank: false, input_html: { class: "select2" } %>
       <%= d.input :description %>
       <%= d.button :submit, "Create dose", class: "btn btn-success" %>
     <% end %>
+
     </div>
 </div>
 
