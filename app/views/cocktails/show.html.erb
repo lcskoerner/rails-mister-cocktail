@@ -25,6 +25,7 @@
         <% end %>
       </tbody>
     </table>
+    <br>
 
     <%= simple_form_for [@cocktail, @dose] do |d| %>
       <%= d.association :ingredient, collection: Ingredient.order(:name),
@@ -39,7 +40,7 @@
 <div class="d-flex">
 
   <ul class="list-group list-group-horizontal mt-4">
-    <button class="btn btn-danger rounded" id="sweet-alert-demo">Delete cocktail</button>
+    <%= link_to "Delete cocktail", "#", class: "list-group-item", id: "sweet-alert-demo" %>
   </ul>
 </div>
 
