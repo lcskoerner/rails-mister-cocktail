@@ -4,7 +4,7 @@
       <div class="card-category"
         style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
         url('<%= cl_image_path c.photo.key, crop: :fill %>')">
-        <%= c.name %>
+        <%= c.name.capitalize %>
       </div>
     <% end %>
   <% end %>
