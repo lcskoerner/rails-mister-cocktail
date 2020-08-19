@@ -2,7 +2,7 @@
 
 <div class="d-flex">
 
-  <img height="500" class="mr-4" src="https://i1.wp.com/www.crispyfoodidea.com/wp-content/uploads/2020/05/Virgin-Mojito.jpg?fit=1080%2C1080&ssl=1)"/>
+  <%= cl_image_tag @cocktail.photo.key, height: 500, crop: :fill %>
 
   <div class="container">
     <table class="table table-dark table-borderless pt-3 mt-3 mb-4">

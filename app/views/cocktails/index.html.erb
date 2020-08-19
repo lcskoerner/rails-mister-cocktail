@@ -2,8 +2,8 @@
   <% @cocktails.each do |c| %>
     <%= link_to cocktail_path(c) do %>
       <div class="card-category"
-        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-        url(https://i1.wp.com/www.crispyfoodidea.com/wp-content/uploads/2020/05/Virgin-Mojito.jpg?fit=1080%2C1080&ssl=1)">
+        style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+        url('<%= cl_image_path c.photo.key, crop: :fill %>')">
         <%= c.name %>
       </div>
     <% end %>
