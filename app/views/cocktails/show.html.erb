@@ -17,10 +17,12 @@
           <tr>
             <td><%= d.ingredient.name %></td>
             <td><%= d.description %></td>
-            <td class="last-col"><%= link_to dose_path(d), method: :delete,
-            data: { confirm: "Are you sure you want to delete #{d.ingredient.name}?"} do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %></td>
+            <td class="last-col">
+              <%= link_to "#", id: "delete-ingredient-swal" do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+              <%= link_to "", dose_path(d), method: :delete, id: "delete-ingredient-link", class: "hidden" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -40,8 +42,8 @@
 <div class="d-flex">
 
   <ul class="list-group list-group-horizontal mt-4">
-    <%= link_to "Delete cocktail", "#", class: "list-group-item", id: "sweet-alert-demo" %>
+    <%= link_to "Delete cocktail", "#", class: "list-group-item", id: "delete-cocktail-swal" %>
   </ul>
 </div>
 
-<%= link_to "", cocktail_path(@cocktail), method: :delete, id: "delete-cocktail", class: "hidden" %>
+<%= link_to "", cocktail_path(@cocktail), method: :delete, id: "delete-cocktail-link", class: "hidden" %>

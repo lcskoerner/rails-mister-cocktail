@@ -17,19 +17,22 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 import 'bootstrap';
 import { initSelect2 } from '../components/init_select2';
-import { initSweetalert } from '../components/init_sweetalert2';
+import { initSwal } from '../components/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
-  initSweetalert('#sweet-alert-demo', {
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: 'Yes, delete it!',
-    cancelButtonText: 'No, cancel!',
-    reverseButtons: true,
-    cancelButtonColor: '#d33',
-    confirmButtonColor: '#218838'
+  initSwal('#delete-cocktail-swal', {
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  });
+  initSwal('#delete-ingredient-swal', {
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
   });
 });
