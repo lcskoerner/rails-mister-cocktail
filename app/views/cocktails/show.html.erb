@@ -1,49 +1,48 @@
-<h1 class="mb-4"><%= @cocktail.name %></h1>
-
-<div class="d-flex">
-
-  <%= cl_image_tag @cocktail.photo.key, height: 500, crop: :fill %>
-
-  <div class="container">
-    <table class="table table-dark table-borderless pt-3 mt-3 mb-4">
-      <thead>
-        <tr>
-          <th scope="col">Ingredient</th>
-          <th scope="col">Dose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @cocktail.doses.each do |d| %>
-          <tr>
-            <td><%= d.ingredient.name %></td>
-            <td><%= d.description %></td>
-            <td class="last-col">
-              <%= link_to "#", id: "delete-ingredient-swal" do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-              <%= link_to "", dose_path(d), method: :delete, id: "delete-ingredient-link", class: "hidden" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <br>
-
-    <%= simple_form_for [@cocktail, @dose] do |d| %>
-      <%= d.association :ingredient, collection: Ingredient.order(:name),
-      prompt: "Pick an ingredient", include_blank: false %>
-      <%= d.input :description %>
-      <%= d.button :submit, "Create dose", class: "btn btn-success" %>
-    <% end %>
-
-    </div>
+<div class="container">
+<div class="row justify-content-center">
+  <h1 class="mb-4"><%= @cocktail.name.capitalize %></h1>
 </div>
-
-<div class="d-flex">
-
-  <ul class="list-group list-group-horizontal mt-4">
-    <%= link_to "Delete cocktail", "#", class: "list-group-item", id: "delete-cocktail-swal" %>
-  </ul>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+    <div class="card">
+      <%= cl_image_tag @cocktail.photo.key, height: 500, crop: :fill %>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-6 col-xl-8">
+    <div>
+      <table class="table table-dark table-borderless pt-3 mt-3 mb-4">
+          <thead>
+            <tr>
+              <th scope="col">Ingredient</th>
+              <th scope="col">Dose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cocktail.doses.each do |d| %>
+              <tr>
+                <td><%= d.ingredient.name %></td>
+                <td><%= d.description %></td>
+                <td class="last-col">
+                  <%= link_to "#", id: "delete-ingredient-swal" do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                  <%= link_to "", dose_path(d), method: :delete, id: "delete-ingredient-link", class: "hidden" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+      <%= simple_form_for [@cocktail, @dose] do |d| %>
+        <%= d.association :ingredient, collection: Ingredient.order(:name),
+        prompt: "Pick an ingredient", include_blank: false %>
+        <%= d.input :description %>
+        <%= d.button :submit, "Create dose", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-12 mt-3">
+    <%= link_to "Delete cocktail", "#", class: "btn btn-purple", id: "delete-cocktail-swal" %>
+  </div>
 </div>
 
 <%= link_to "", cocktail_path(@cocktail), method: :delete, id: "delete-cocktail-link", class: "hidden" %>
